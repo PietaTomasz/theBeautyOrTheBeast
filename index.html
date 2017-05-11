@@ -1,0 +1,41 @@
+<!DOCTYPE html><html lang="pl-PL"><head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chilid the Beauty or the Beast</title><link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="script.js"> </script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script><script>
+
+$(function() {var people = [];
+$.getJSON('sluzba.json', function(data) {
+$.each(data, function(i, object) {
+var json = "<tr><td>" + object.id + "</td><td>" + object.firstName + "</td><td>" + object.lastName + "</td><td>" + object.dateOfBirth + "</td><td>" + object.function + "</td><td>" + object.experience + "</td></tr>"
+$(json).appendTo("#json");     });   });     });
+
+$(document).ready(function(){$("#page0").click(function(){$("tbody tr").show();});
+$(document).ready(function(){$("tbody tr:nth-child(n+6)").hide();$("tbody tr:nth-child(-n+5)").show();});
+$("#page1").click(function(){$("tbody tr:nth-child(n+6)").hide();$("tbody tr:nth-child(-n+5)").show();});
+$("#page2").click(function(){$("tbody tr:nth-child(n+6)").show();$("tbody tr:nth-child(-n+5)").hide();$("tbody tr:nth-child(n+11)").hide();});
+$("#page3").click(function(){$("tbody tr:nth-child(n+10)").show();$("tbody tr:nth-child(-n+10)").hide();});});
+
+</script></head><body><div class="table-responsive"><div class="profile">
+<h3>the Beauty or the Beast - zadanie rekrutacyjne</h3>
+
+  <ul class="pagination">
+    <li><a href="#" id="page0">Razem</a></li>
+    <li><a href="#" id="page1">1</a></li>
+    <li><a href="#" id="page2">2</a></li>
+    <li><a href="#" id="page3">3</a></li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+  <li><input type="text" id="myInput" onkeyup="searchTable()" placeholder="Wyszukaj"></li></ul>
+
+<table class="table-striped" id="myTable" border="4"><thead>
+<th onclick="sortTable(0)">Id</th>
+<th onclick="sortTable(1)">First Name</th>
+<th onclick="sortTable(2)">Last Name</th>
+<th onclick="sortTable(3)">Date of Birth</th>
+<th onclick="sortTable(4)">Function</th>
+<th onclick="sortTable(5)">Experience</th>
+</thead><tbody id="json"></tbody></table></div></div></body>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</html>

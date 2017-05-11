@@ -1,0 +1,4 @@
+﻿table, body, html{width: 80%; text-align: center; padding: 0px 40px 0px 40px;}
+#myTable th, #myTable td {padding: 12px; text-align: center;}
+#myTable th, #myTable tr:hover {background-color: #f1f1f1;}
+th{cursor:pointer;} 
