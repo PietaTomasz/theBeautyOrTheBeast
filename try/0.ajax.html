@@ -1,0 +1,10 @@
+<html><head><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+
+<script type="text/javascript">
+$.ajax({url: 'sluzba.json', dataType: 'json', success: function(data) {for (var i=0; i<data.length; i++) {
+var row = $('<tr><td>' + data[i].id+ '</td><td>' + data[i].firstName + '</td><td>' + data[i].lastName + '</td><td>' + data[i].dateOfBirth + '</td><td>' + data[i].function + '</td><td>' + data[i].experience + '</td></tr>');
+$('#json').append(row);}},});</script>
+
+</head><body><div class="wrapper"><div class="profile"><table border="4"><thead>
+<th>Id</th><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Function</th><th>Experience</th>
+</thead><tbody id="json"></tbody></table></div></div></body></html>

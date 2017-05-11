@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="pl-PL"><head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chilid the Beauty or the Beast</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){$("#page0").click(function(){$("tbody tr").show();});
+  $(document).ready(function(){$("tbody tr:nth-child(n+6)").hide();$("tbody tr:nth-child(-n+5)").show();});
+  $("#page1").click(function(){$("tbody tr:nth-child(n+6)").hide();$("tbody tr:nth-child(-n+5)").show();});
+  $("#page2").click(function(){$("tbody tr:nth-child(n+6)").show();$("tbody tr:nth-child(-n+5)").hide();$("tbody tr:nth-child(n+11)").hide();});
+  $("#page3").click(function(){$("tbody tr:nth-child(n+10)").show();$("tbody tr:nth-child(-n+10)").hide();});
+});</script><script>
+ $(function() {var people = [];
+ $.getJSON('sluzba.json', function(data) {
+ $.each(data, function(i, object) {
+ var json = "<tr><td>" + object.id + "</td><td>" + object.firstName + "</td><td>" + object.lastName + "</td><td>" + object.dateOfBirth + "</td><td>" + object.function + "</td><td>" + object.experience + "</td></tr>"
+ $(json).appendTo("#json");     });   });     });
+</script></head><body>
+  <ul class="pagination">
+    <li><a href="#" id="page1">1</a></li>
+    <li><a href="#" id="page2">2</a></li>
+    <li><a href="#" id="page3">3</a></li></ul>
+  <table border="4"><thead>
+  <th>Id</th><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Function</th><th>Experience</th>
+  </thead><tbody id="json"></tbody></table>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></html>

@@ -1,0 +1,37 @@
+<html><head><style>th{cursor:pointer}</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script><script>
+
+$(function() {var people = [];
+$.getJSON('sluzba.json', function(data) {
+$.each(data, function(i, object) {
+var json = "<tr><td>" + object.id + "</td><td>" + object.firstName + "</td><td>" + object.lastName + "</td><td>" + object.dateOfBirth + "</td><td>" + object.function + "</td><td>" + object.experience + "</td></tr>"
+$(json).appendTo("#json");     });   });     });</script>
+
+<script>
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        shouldSwitch= true;        break;      }    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;    }  }}
+      </script>
+
+</head><body><div class="wrapper"><div class="profile">
+<table id=myTable border="4"><thead>
+<th onclick="sortTable(0)">Id</th>
+<th onclick="sortTable(1)">First Name</th>
+<th onclick="sortTable(2)">Last Name</th>
+<th onclick="sortTable(3)">Date of Birth</th>
+<th onclick="sortTable(4)">Function</th>
+<th onclick="sortTable(5)">Experience</th>
+</thead><tbody id="json"></tbody></table></div></div></body></html>

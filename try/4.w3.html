@@ -1,0 +1,17 @@
+<html><head><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script><script src="w3.js"></script><script>
+
+$(function() {var people = [];
+$.getJSON('sluzba.json', function(data) {
+$.each(data, function(i, object) {
+var json = "<tr class=item><td>" + object.id + "</td><td>" + object.firstName + "</td><td>" + object.lastName + "</td><td>" + object.dateOfBirth + "</td><td>" + object.function + "</td><td>" + object.experience + "</td></tr>"
+$(json).appendTo("#json");     });   });     });
+
+</script></head><body><div class="wrapper"><div class="profile"><h2>Sort Tables</h2>
+<p>Click the table headers to sort the  table accordingly:</p><table id="myTable" border="4"><thead>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(1)')" style="cursor:pointer">Id</th>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(2)')" style="cursor:pointer">First Name</th>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(3)')" style="cursor:pointer">Last Name</th>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(4)')" style="cursor:pointer">Date of Birth</th>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(5)')" style="cursor:pointer">Function</th>
+<th onclick="w3.sortHTML('#myTable', '.item', 'td:nth-child(6)')" style="cursor:pointer">Experience</th>
+</thead><tbody id="json"></tbody></table></div></div></body></html>
