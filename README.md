@@ -1,5 +1,7 @@
 the Beauty or the Beast - zadanie rekrutacyjne
 
+demo: http://tomaszpieta.na-sieci.pl/chilid/index.html
+
 Ostateczny plik z wyświetloną tabelą znajduje się w pliku index.html, reszta plików w katalogu Try to pliki z cząstkowymi rozwiązaniami
 Wyświetlałem pliki poprzez Firefoxa oraz Chrome, w tym ostatnim mi nie działało, nie wiem dlaczego, proszę o używanie Firefoxa :)
 Opis dojścia do rozwiązania:
